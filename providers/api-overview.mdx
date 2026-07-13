@@ -1,0 +1,110 @@
+---
+title: "MedifyAI REST API for Providers and Developers"
+sidebarTitle: "API Overview"
+description: "Use the MedifyAI REST API to automate patient data access, trigger appointment workflows, and build custom integrations with your healthcare applications."
+---
+
+The MedifyAI REST API allows healthcare providers and developers to programmatically access patient data, manage appointments, and build custom integrations. All API endpoints require authentication with an API key scoped to your provider organization.
+
+## Authentication
+
+Generate an API key from **Settings → Integrations → API Keys** in your provider dashboard. Pass your key in the `Authorization` header of every request:
+
+```http
+Authorization: Bearer YOUR_API_KEY
+```
+
+<Warning>
+  Keep your API key secret. Never expose it in client-side code or public repositories. Rotate it immediately from **Settings → API Keys** if you suspect it has been compromised.
+</Warning>
+
+## Base URL
+
+All API requests are made to the following base URL:
+
+```
+https://api.medifyai.com/v1
+```
+
+## Key endpoints
+
+<AccordionGroup>
+  <Accordion title="GET /patients — List connected patients">
+    List all patients connected to your provider account. Supports pagination (`?page=1&limit=20`) and filtering by name (`?name=`). Returns a paginated array of patient objects.
+
+    **Sample response**
+
+    ```json
+    {
+      "patients": [
+        {
+          "id": "pat_01HXYZ",
+          "name": "Jane Doe",
+          "dob": "1985-04-12",
+          "last_visit": "2024-11-15"
+        }
+      ],
+      "total": 142,
+      "page": 1
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="GET /patients/{id}/records — Retrieve patient health records">
+    Retrieve health records shared by a specific patient. Returns an array of record objects including type, date, and a secure download URL valid for 60 minutes.
+
+    Replace `{id}` with the patient's unique identifier (e.g., `pat_01HXYZ`).
+  </Accordion>
+
+  <Accordion title="POST /appointments — Create an appointment">
+    Create a new appointment for a patient. Required fields: `patient_id`, `provider_id`, `type` (`in-person` or `telehealth`), and `starts_at` (ISO 8601 datetime).
+
+    **Request body**
+
+    ```json
+    {
+      "patient_id": "pat_01HXYZ",
+      "provider_id": "prov_09ABCD",
+      "type": "telehealth",
+      "starts_at": "2025-03-15T14:30:00Z",
+      "reason": "Follow-up consultation"
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="GET /appointments — List appointments">
+    List upcoming and past appointments for your practice. Filter results using the following query parameters:
+
+    - `?status=upcoming|past|cancelled` — Filter by appointment status.
+    - `?patient_id=` — Filter appointments for a specific patient.
+  </Accordion>
+</AccordionGroup>
+
+## Rate limits
+
+API rate limits depend on your plan:
+
+| Plan         | Rate limit               |
+| ------------ | ------------------------ |
+| Professional | 1,000 requests per hour  |
+| Enterprise   | 10,000 requests per hour |
+
+Each API response includes the following headers so you can monitor your usage:
+
+- `X-RateLimit-Limit` — Your plan's total request limit per hour.
+- `X-RateLimit-Remaining` — Requests remaining in the current window.
+- `X-RateLimit-Reset` — Unix timestamp when the current rate limit window resets.
+
+## Error responses
+
+| Status code | Meaning                                             |
+| ----------- | --------------------------------------------------- |
+| `401`       | Invalid or missing API key                          |
+| `403`       | Insufficient permissions for the requested resource |
+| `404`       | Resource not found                                  |
+| `429`       | Rate limit exceeded                                 |
+| `500`       | Server error — contact support                      |
+
+<Note>
+  Full API documentation including the OpenAPI spec is available at [api.medifyai.com/docs](https://api.medifyai.com/docs).
+</Note>

@@ -1,0 +1,110 @@
+---
+title: "Fix Common MedifyAI Problems and Errors"
+sidebarTitle: "Common Issues"
+description: "Troubleshooting guide for the most common MedifyAI issues — login problems, app errors, missing records, appointment failures, and notification issues."
+---
+
+This page covers solutions to the most common issues MedifyAI users encounter. Work through the relevant steps below, and if the problem persists, our support team is ready to help.
+
+## Login & Access
+
+<AccordionGroup>
+  <Accordion title="I can't log in">
+    Try the following in order:
+
+    1. **Check Caps Lock** — passwords are case-sensitive.
+    2. **Reset your password** — click the **Forgot Password** link on the login screen and follow the email instructions.
+    3. **Check account verification** — if you recently registered, look for a verification email in your inbox and complete the process before logging in.
+    4. **SSO users** — if you signed up with Google or Apple, make sure you're clicking the correct **Continue with Google** or **Continue with Apple** button and selecting the same account used at registration.
+
+    If none of these work, contact [support@medifyai.com](mailto:support@medifyai.com).
+  </Accordion>
+  <Accordion title="I didn't receive a verification email">
+    1. Check your **spam or junk** folder — automated emails sometimes end up there.
+    2. Wait up to **5 minutes** — delivery can occasionally be delayed.
+    3. On the login screen, click **Resend Verification Email** and try again.
+    4. Make sure the email address you entered at signup was spelled correctly.
+
+    If you still haven't received it after resending, contact [support@medifyai.com](mailto:support@medifyai.com) and we'll verify your account manually.
+  </Accordion>
+  <Accordion title="My 2FA code isn't working">
+    Authenticator app codes are time-based (TOTP) and expire every 30 seconds. The most common cause of failure is a clock sync issue on your device.
+
+    - **Sync your device clock** — on iOS go to Settings → General → Date & Time and enable "Set Automatically." On Android go to Settings → General Management → Date and Time.
+    - **Use a backup code** — if you saved backup codes when you set up 2FA, enter one of those instead.
+    - **Locked out entirely** — contact [support@medifyai.com](mailto:support@medifyai.com) to verify your identity and regain access.
+  </Accordion>
+</AccordionGroup>
+
+## App & Performance
+
+<AccordionGroup>
+  <Accordion title="The app is slow or not loading">
+    1. **Clear your cache** — in a browser, clear cookies and cache for medifyai.com. On mobile, go to the app settings and clear the app cache.
+    2. **Check your internet connection** — switch between Wi-Fi and mobile data to isolate the issue.
+    3. **Try a different browser** — MedifyAI works best on the latest versions of Chrome, Firefox, Edge, and Safari.
+    4. **Check for an outage** — visit [status.medifyai.com](https://status.medifyai.com) to see if there is a known incident affecting performance.
+  </Accordion>
+  <Accordion title="Features are missing or broken">
+    1. **Log out and log back in** — this refreshes your session and account permissions.
+    2. **Update the app** — on mobile, check the App Store (iOS) or Google Play (Android) for a pending update. Running an outdated version is the most common cause of broken features.
+    3. **Hard-refresh the page** — in a browser, press `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac).
+
+    If features remain missing after updating, contact [support@medifyai.com](mailto:support@medifyai.com) with details about what's missing and your device/browser.
+  </Accordion>
+</AccordionGroup>
+
+## Health Records
+
+<AccordionGroup>
+  <Accordion title="My record upload failed">
+    Check the following before retrying:
+
+    - **File format** — only PDF, JPG, and PNG files are accepted.
+    - **File size** — the maximum file size per upload is **20 MB**.
+    - **Connection** — make sure you have a stable internet connection before uploading.
+
+    Once you've confirmed the file meets these requirements, try the upload again. If it continues to fail, contact [support@medifyai.com](mailto:support@medifyai.com) with the file type and size.
+  </Accordion>
+  <Accordion title="A shared record link expired">
+    Shared record links have an expiry date set at the time of sharing. Once expired, the link is no longer accessible.
+
+    To share the record again:
+    1. Go to **Health Records** and open the record.
+    2. Click **Share** and generate a new link.
+    3. Set a longer expiry window if the recipient needs extended access.
+  </Accordion>
+</AccordionGroup>
+
+## Appointments
+
+<AccordionGroup>
+  <Accordion title="I can't find my provider">
+    - Search by the provider's full name or practice name.
+    - Try searching by their **NPI number** (National Provider Identifier) for a direct match.
+    - If your provider doesn't appear at all, ask them to connect their MedifyAI provider account. You can share the [Provider Onboarding](/providers/onboarding) link with them.
+  </Accordion>
+  <Accordion title="My telehealth link isn't working">
+    1. **Join from the app** — go to the **Appointments** tab and click **Join** from there, rather than using the link in your email. Email links can expire.
+    2. **Check permissions** — your browser or phone must have permission to access your camera and microphone. Check these in your browser's site settings or your phone's app permissions.
+    3. **Use a supported browser** — telehealth requires Chrome, Firefox, Edge, or Safari (latest versions). Internet Explorer is not supported.
+  </Accordion>
+</AccordionGroup>
+
+## Medications
+
+<AccordionGroup>
+  <Accordion title="My medication isn't in the database">
+    - Search by the **generic name** instead of the brand name (e.g., "ibuprofen" instead of "Advil").
+    - If the medication still doesn't appear, use the **Add manually** option to enter it yourself — you can input the name, dosage, and schedule without a database match.
+  </Accordion>
+  <Accordion title="I'm not getting dose reminders">
+    1. **Check notification settings** — go to **Account** → **Notifications** and confirm that medication dose reminders are toggled on under the Push tab.
+    2. **Check app permissions** — on mobile, make sure MedifyAI has notification permissions enabled in your phone's Settings → Apps → MedifyAI → Notifications.
+    3. **Check quiet hours** — if you have a quiet hours window set, reminders during that time will be suppressed.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+If you've worked through the relevant steps above and the issue persists, visit our [Contact Support](/troubleshooting/contact-support) page for direct assistance from the MedifyAI support team.

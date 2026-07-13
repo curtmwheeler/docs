@@ -1,0 +1,80 @@
+---
+title: "Manage Your Health Records in MedifyAI"
+sidebarTitle: "Health Records"
+description: "Store, view, and share your lab results, prescriptions, imaging reports, and provider notes securely in your MedifyAI health records vault."
+---
+
+MedifyAI gives you a secure, centralized place to store every piece of your health history — lab results, imaging reports, prescriptions, and provider notes. No more hunting through paper files or logging into multiple patient portals. This page explains how to upload, organize, and share your records.
+
+<Note>
+  All records are encrypted at rest and in transit using **AES-256** and **TLS 1.3**. MedifyAI is fully **HIPAA compliant**.
+</Note>
+
+## Uploading records
+
+<Steps>
+  <Step title="Open Health Records">
+    Go to **Health Records** in the navigation bar.
+  </Step>
+  <Step title="Start a new upload">
+    Click **Upload Record** in the top-right corner.
+  </Step>
+  <Step title="Select your file">
+    Choose the file you want to upload. Supported formats are **PDF, JPG, and PNG** — maximum file size is **20 MB**.
+  </Step>
+  <Step title="Choose a category">
+    Assign the record to one of the following categories: **Lab Results**, **Prescriptions**, **Imaging**, **Visit Notes**, or **Other**.
+  </Step>
+  <Step title="Add details">
+    Enter the record date and add any optional notes (e.g., the ordering provider's name or the clinic where the test was performed).
+  </Step>
+  <Step title="Save the record">
+    Click **Save**. The record appears in your Health Records vault immediately.
+  </Step>
+</Steps>
+
+## Record categories
+
+Organize your health history using the following categories:
+
+- 🧪 **Lab Results** — Blood tests, urine tests, pathology reports, and other diagnostic results.
+- 💊 **Prescriptions** — Prescription printouts, pharmacy receipts, and medication summaries.
+- 🩻 **Imaging** — X-rays, MRI reports, CT scans, ultrasound results, and radiology notes.
+- 📋 **Visit Notes** — After-visit summaries, referral letters, and provider correspondence.
+- 📁 **Other** — Vaccination records, insurance documents, and anything that does not fit the above categories.
+
+## Sharing records with a provider
+
+<Steps>
+  <Step title="Open the record">
+    Navigate to **Health Records** and click on the record you want to share.
+  </Step>
+  <Step title="Click Share">
+    Select **Share** from the record's action menu.
+  </Step>
+  <Step title="Choose a recipient">
+    Enter the provider's name or **NPI number**, or select them from your list of connected providers.
+  </Step>
+  <Step title="Set an expiry">
+    Choose how long the share link should remain active: **24 hours**, **7 days**, **30 days**, or **Permanent**.
+  </Step>
+  <Step title="Send the record">
+    Click **Send**. Your provider receives a secure email containing a link to view the record. No account is required on their end.
+  </Step>
+</Steps>
+
+## Importing from other systems
+
+MedifyAI supports **FHIR R4** data imports, so you can bring your complete health history over from hospitals and clinics that support the standard.
+
+To import your records:
+
+1. Request a **FHIR data export** (JSON format) from your hospital's patient portal or health information department.
+2. In MedifyAI, go to **Health Records → Import → FHIR**.
+3. Upload the JSON file. MedifyAI automatically categorizes and indexes the imported records.
+
+Most major US health systems support FHIR R4 exports in compliance with the 21st Century Cures Act. Contact your provider's health information team if you are unsure how to request your data.
+
+## Deleting records
+
+You can permanently delete any record by opening it and selecting **Delete** from the record's settings menu (⚙️). Review your selection carefully — **deleted records cannot be recovered**. If you need to remove a record you have shared, revoke the share link first via **Health Records → Shared Links**.

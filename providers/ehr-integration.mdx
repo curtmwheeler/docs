@@ -1,0 +1,79 @@
+---
+title: "Connect Your EHR System to MedifyAI via FHIR"
+sidebarTitle: "EHR Integration"
+description: "Integrate MedifyAI with your EHR using FHIR R4 — sync patient records, lab results, and appointments bidirectionally with Epic, Cerner, Athenahealth, and more."
+---
+
+MedifyAI integrates with major EHR systems using the FHIR R4 standard, enabling bidirectional sync of patient records, lab results, appointments, and medications. This page explains how to connect your EHR and what data syncs.
+
+## Supported EHR systems
+
+<CardGroup cols={3}>
+  <Card title="Epic" icon="check">
+    Full bidirectional FHIR R4 sync supported.
+  </Card>
+  <Card title="Cerner / Oracle Health" icon="check">
+    Full bidirectional FHIR R4 sync supported.
+  </Card>
+  <Card title="Athenahealth" icon="check">
+    Full bidirectional FHIR R4 sync supported.
+  </Card>
+  <Card title="eClinicalWorks" icon="check">
+    Full bidirectional FHIR R4 sync supported.
+  </Card>
+  <Card title="Allscripts" icon="check">
+    Full bidirectional FHIR R4 sync supported.
+  </Card>
+  <Card title="Other FHIR R4-Compliant" icon="plug">
+    Any FHIR R4-compliant EHR can be connected using your system's FHIR base URL and client credentials.
+  </Card>
+</CardGroup>
+
+## Connecting your EHR
+
+<Steps>
+  <Step title="Open EHR settings">
+    Go to **Settings → Integrations → EHR** in your provider dashboard.
+  </Step>
+  <Step title="Select your EHR vendor">
+    Choose your EHR system from the vendor list. If your system isn't listed, select **Other FHIR R4-Compliant EHR**.
+  </Step>
+  <Step title="Enter your FHIR credentials">
+    Enter your EHR's FHIR base URL and client credentials. These are provided by your EHR vendor or your organization's IT team.
+  </Step>
+  <Step title="Authorize the connection">
+    MedifyAI uses OAuth 2.0 SMART on FHIR to authenticate with your EHR. Follow the on-screen prompts to complete the authorization flow.
+  </Step>
+  <Step title="Select data to sync">
+    Choose which categories of patient data to sync: Demographics, Medications, Lab Results, Appointments, Conditions, and Allergies. You can update these selections at any time.
+  </Step>
+  <Step title="Connect and run initial sync">
+    Click **Connect** to finalize the integration. An initial sync runs immediately and typically completes within a few minutes for smaller practices. Larger datasets may take longer.
+  </Step>
+</Steps>
+
+<Warning>
+  EHR integration setup may require assistance from your EHR vendor or IT department. Contact your EHR's support team for your FHIR base URL and client credentials before beginning.
+</Warning>
+
+## What syncs
+
+MedifyAI syncs the following FHIR R4 resource types bidirectionally between your EHR and the MedifyAI platform:
+
+- `Patient` — Demographics, contact information, and identifiers
+- `Observation` — Vital signs and clinical measurements
+- `MedicationRequest` — Active and historical medication orders
+- `Appointment` — Scheduled visits and telehealth sessions
+- `Condition` — Active and resolved diagnoses
+- `AllergyIntolerance` — Documented allergies and intolerances
+- `DiagnosticReport` — Lab results and imaging reports
+
+## Sync frequency
+
+MedifyAI automatically syncs data with your EHR every **15 minutes**. If you need to force an immediate sync — for example, after a recent chart update — go to **Settings → Integrations** and click **Sync Now**.
+
+You can review the timestamp of the last successful sync and any sync errors from the same Integrations page.
+
+<Note>
+  For enterprise EHR implementations or custom integration needs, contact [integrations@medifyai.com](mailto:integrations@medifyai.com).
+</Note>
